@@ -3,6 +3,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  background-image: url("bbg.png");
+  background-size: cover; /* fill screen */
+  background-position: center; /* center image */
+  background-repeat: no-repeat; /* no tiling */
+  background-attachment: fixed;
 }
 
 html,
@@ -124,7 +130,6 @@ main {
   min-width: 100px;
 }
 
-
 /* Radio group for communication type */
 .radio-group {
   display: flex;
@@ -158,7 +163,10 @@ main {
   background: #00bfa6; /* accent color */
   color: #ffffff;
   cursor: pointer;
-  transition: transform 0.08s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
   box-shadow: 0 6px 14px rgba(0, 191, 166, 0.25);
 }
 
@@ -289,7 +297,9 @@ p {
 }
 
 .mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
 
 .badge {
@@ -384,11 +394,13 @@ p {
   max-width: 100%;
 }
 
-.copyable, [data-copy] {
+.copyable,
+[data-copy] {
   cursor: copy;
 }
 
-.copyable:hover, [data-copy]:hover {
+.copyable:hover,
+[data-copy]:hover {
   text-decoration: underline;
 }
 

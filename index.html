@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,14 +11,37 @@
     <header>
       <img src="bulsuLogo.png" alt="BulSU Logo" height="75px" />
       <h2 id="title">BulSU Document Tracker</h2>
-      <button class="tab-btn active" data-tab="login" id="loginTabBtn">Login</button>
-      <button class="tab-btn" data-tab="send" id="sendTabBtn" disabled>Send Documents</button>
-      <button class="tab-btn" data-tab="receive" id="receiveTabBtn" disabled>Receive Documents</button>
-      <button class="tab-btn" data-tab="track" id="trackTabBtn" disabled>Track Documents</button>
-      <button class="tab-btn" data-tab="dashboard" id="dashboardTabBtn" disabled>Dashboard</button>
+      <button class="tab-btn active" data-tab="login" id="loginTabBtn">
+        Login
+      </button>
+      <button class="tab-btn" data-tab="send" id="sendTabBtn" disabled>
+        Send Documents
+      </button>
+      <button class="tab-btn" data-tab="receive" id="receiveTabBtn" disabled>
+        Receive Documents
+      </button>
+      <button class="tab-btn" data-tab="track" id="trackTabBtn" disabled>
+        Track Documents
+      </button>
+      <button
+        class="tab-btn"
+        data-tab="dashboard"
+        id="dashboardTabBtn"
+        disabled
+      >
+        Dashboard
+      </button>
       <!-- <button class="tab-btn" data-tab="about">About Developer</button> -->
-      <button class="tab-btn" data-tab="admin" id="adminTabBtn" disabled style="display:none;">Admin</button>
-      <button id="logoutBtn" style="display:none;">Logout</button>
+      <button
+        class="tab-btn"
+        data-tab="admin"
+        id="adminTabBtn"
+        disabled
+        style="display: none"
+      >
+        Admin
+      </button>
+      <button id="logoutBtn" style="display: none">Logout</button>
     </header>
 
     <main>
@@ -33,7 +56,12 @@
             </div>
             <div class="form-group">
               <label for="loginPassword">Password</label>
-              <input type="password" id="loginPassword" name="password" required />
+              <input
+                type="password"
+                id="loginPassword"
+                name="password"
+                required
+              />
             </div>
             <div class="form-actions">
               <button type="submit" class="btn-primary">Login</button>
@@ -43,13 +71,18 @@
       </section>
 
       <!-- SEND -->
-      <section id="send" class="tab portal-section">
+      <section
+        id="send"
+        class="tab portal-section"
+      >
         <div class="portal-section-content">
           <h1 class="portal-section-title">Send Documents</h1>
 
           <form id="portalForm-send">
             <div class="form-group">
-              <label for="sendDocName">Document Name / Nature of Communication:</label>
+              <label for="sendDocName"
+                >Document Name / Nature of Communication:</label
+              >
               <input type="text" id="sendDocName" name="docName" required />
             </div>
 
@@ -63,26 +96,50 @@
               <label>Type of Communication:</label>
               <div class="radio-group">
                 <label>
-                  <input type="radio" name="docType" value="Internal Communication" required />
+                  <input
+                    type="radio"
+                    name="docType"
+                    value="Internal Communication"
+                    required
+                  />
                   Internal Communication
                 </label>
                 <label>
-                  <input type="radio" name="docType" value="External Communication" />
+                  <input
+                    type="radio"
+                    name="docType"
+                    value="External Communication"
+                  />
                   External Communication
                 </label>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="receiverOfficeSelect">Receiver Office (pick from list)</label>
-              <select id="receiverOfficeSelect" style="width:100%; padding:8px 10px; border:1px solid #ccc; border-radius:6px; font-size:1rem;">
+              <label for="receiverOfficeSelect"
+                >Receiver Office (pick from list)</label
+              >
+              <select
+                id="receiverOfficeSelect"
+                style="
+                  width: 100%;
+                  padding: 8px 10px;
+                  border: 1px solid #ccc;
+                  border-radius: 6px;
+                  font-size: 1rem;
+                "
+              >
                 <option value="">Loading...</option>
               </select>
-              <small class="muted">Selecting an office will fill the username input below.</small>
+              <small class="muted"
+                >Selecting an office will fill the username input below.</small
+              >
             </div>
 
             <div class="form-group">
-              <label for="receiverOfficeSearch">Search / Autocomplete Receiver Office</label>
+              <label for="receiverOfficeSearch"
+                >Search / Autocomplete Receiver Office</label
+              >
               <input
                 type="text"
                 id="receiverOfficeSearch"
@@ -91,40 +148,93 @@
                 autocomplete="off"
               />
               <datalist id="receiverOfficeDatalist"></datalist>
-              <small class="muted">Tip: start typing, then pick a suggestion.</small>
+              <small class="muted"
+                >Tip: start typing, then pick a suggestion.</small
+              >
             </div>
 
             <div class="form-group">
-              <label for="receiverUsernameSend">Receiver Office Username:</label>
-              <input type="text" id="receiverUsernameSend" name="receiverUsername" required />
+              <label for="receiverUsernameSend"
+                >Receiver Office Username:</label
+              >
+              <input
+                type="text"
+                id="receiverUsernameSend"
+                name="receiverUsername"
+                required
+              />
             </div>
 
             <input type="hidden" id="docTagInput" name="docTag" />
 
-            <div class="form-actions" style="display:flex; gap:8px; align-items:center">
-              <button type="button" class="btn-primary" id="generateBtn">Generate Tag & QR</button>
+            <div
+              class="form-actions"
+              style="display: flex; gap: 8px; align-items: center"
+            >
+              <button type="button" class="btn-primary" id="generateBtn">
+                Generate Tag & QR
+              </button>
               <button type="button" id="resetSendBtn">Reset</button>
-              <button type="submit" class="btn-primary" id="sendSubmitBtn">Submit</button>
+              <button type="submit" class="btn-primary" id="sendSubmitBtn">
+                Submit
+              </button>
             </div>
 
-            <div id="generatedArea" style="margin-top:16px; display:none; gap:12px; align-items:center">
-              <div id="qrContainer" style="display:flex; flex-direction:column; align-items:center">
+            <div
+              id="generatedArea"
+              style="
+                margin-top: 16px;
+                display: none;
+                gap: 12px;
+                align-items: center;
+              "
+            >
+              <div
+                id="qrContainer"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                "
+              >
                 <img
                   id="qrImage"
                   alt="QR Code"
-                  style="width:150px; height:150px; border:1px solid #ccc; border-radius:6px"
+                  style="
+                    width: 150px;
+                    height: 150px;
+                    border: 1px solid #ccc;
+                    border-radius: 6px;
+                  "
                 />
                 <small>Scan to open document tag</small>
               </div>
-              <div id="tagContainer" style="display:flex; flex-direction:column; justify-content:center">
-                <label style="font-weight:bold; margin-bottom:6px">Document Tag</label>
+              <div
+                id="tagContainer"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                "
+              >
+                <label style="font-weight: bold; margin-bottom: 6px"
+                  >Document Tag</label
+                >
                 <div
                   id="docTag"
-                  style="font-family:monospace; background:#f4f4f4; padding:8px 10px; border-radius:4px; border:1px solid #ddd"
+                  style="
+                    font-family: monospace;
+                    background: #f4f4f4;
+                    padding: 8px 10px;
+                    border-radius: 4px;
+                    border: 1px solid #ddd;
+                  "
                 ></div>
-                <div style="margin-top:8px; display:flex; gap:8px">
+                <div style="margin-top: 8px; display: flex; gap: 8px">
                   <button type="button" id="copyTagBtn">Copy Tag</button>
-                  <button type="button" id="printQrBtn">Print QR on Letter</button>
+                  <button type="button" id="printQrBtn">
+                    Print QR on Letter
+                  </button>
                 </div>
               </div>
             </div>
@@ -140,22 +250,39 @@
             <div class="form-group">
               <label for="receiveFileID">Unique File ID</label>
               <input type="text" id="receiveFileID" name="fileID" required />
-              <small class="muted">Tip: paste the File ID, then click Lookup to confirm details before marking received.</small>
+              <small class="muted"
+                >Tip: paste the File ID, then click Lookup to confirm details
+                before marking received.</small
+              >
             </div>
 
-            <div class="form-actions" style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
+            <div
+              class="form-actions"
+              style="
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                flex-wrap: wrap;
+              "
+            >
               <button type="button" id="receiveLookupBtn">Lookup</button>
-              <button type="submit" class="btn-primary">Mark as Received</button>
+              <button type="submit" class="btn-primary">
+                Mark as Received
+              </button>
             </div>
           </form>
 
-          <div id="receivePreview" class="result-card" style="display:none; margin-top:14px; text-align:left;">
+          <div
+            id="receivePreview"
+            class="result-card"
+            style="display: none; margin-top: 14px; text-align: left"
+          >
             <div class="result-header">
               <div>
                 <div class="muted">Status</div>
                 <div id="receivePreviewStatus" class="result-title"></div>
               </div>
-              <div style="text-align:right;">
+              <div style="text-align: right">
                 <div class="muted">File ID</div>
                 <div id="receivePreviewFileId" class="mono"></div>
               </div>
@@ -180,9 +307,33 @@
               </div>
             </div>
 
-            <div style="margin-top:12px; display:flex; gap:8px; justify-content:flex-end; flex-wrap:wrap;">
-              <button type="button" class="btn-small status-action-btn" data-action="delivered" data-fileid="" id="receiveDeliverBtn">Deliver</button>
-              <button type="button" class="btn-small btn-danger status-action-btn" data-action="rejected" data-fileid="" id="receiveRejectBtn">Reject</button>
+            <div
+              style="
+                margin-top: 12px;
+                display: flex;
+                gap: 8px;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+              "
+            >
+              <button
+                type="button"
+                class="btn-small status-action-btn"
+                data-action="delivered"
+                data-fileid=""
+                id="receiveDeliverBtn"
+              >
+                Deliver
+              </button>
+              <button
+                type="button"
+                class="btn-small btn-danger status-action-btn"
+                data-action="rejected"
+                data-fileid=""
+                id="receiveRejectBtn"
+              >
+                Reject
+              </button>
             </div>
           </div>
         </div>
@@ -203,15 +354,19 @@
           </form>
 
           <!-- NEW: track result card -->
-          <div id="trackResult" class="result-card" style="display:none; margin-top:16px; text-align:left;">
+          <div
+            id="trackResult"
+            class="result-card"
+            style="display: none; margin-top: 16px; text-align: left"
+          >
             <div class="result-header">
               <div>
                 <div class="muted">Status</div>
                 <div id="trackStatus" class="result-title"></div>
               </div>
-              <div style="text-align:right;">
+              <div style="text-align: right">
                 <div class="muted">File ID</div>
-                <div id="trackFileId" style="font-family:monospace;"></div>
+                <div id="trackFileId" style="font-family: monospace"></div>
               </div>
             </div>
 
@@ -230,11 +385,17 @@
               </div>
               <div class="result-field">
                 <div class="muted">Source Office</div>
-                <div id="trackSourceOffice" style="font-family:monospace;"></div>
+                <div
+                  id="trackSourceOffice"
+                  style="font-family: monospace"
+                ></div>
               </div>
               <div class="result-field">
                 <div class="muted">Receiver Office</div>
-                <div id="trackReceiverOffice" style="font-family:monospace;"></div>
+                <div
+                  id="trackReceiverOffice"
+                  style="font-family: monospace"
+                ></div>
               </div>
               <div class="result-field">
                 <div class="muted">Created At</div>
@@ -246,9 +407,9 @@
               </div>
             </div>
 
-            <h3 style="margin-top:14px; margin-bottom:8px;">History</h3>
+            <h3 style="margin-top: 14px; margin-bottom: 8px">History</h3>
             <div class="table-wrap">
-              <table class="data-table" style="min-width: 640px;">
+              <table class="data-table" style="min-width: 640px">
                 <thead>
                   <tr>
                     <th>When</th>
@@ -259,12 +420,14 @@
                   </tr>
                 </thead>
                 <tbody id="trackEventsTbody">
-                  <tr><td colspan="5">No history loaded.</td></tr>
+                  <tr>
+                    <td colspan="5">No history loaded.</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
 
-            <div style="margin-top:12px; display:flex; gap:8px;">
+            <div style="margin-top: 12px; display: flex; gap: 8px">
               <button type="button" id="trackClearBtn">Clear</button>
               <button type="button" id="trackCopyBtn">Copy Summary</button>
             </div>
@@ -277,21 +440,55 @@
         <div class="portal-section-content">
           <h1 class="portal-section-title">My Dashboard</h1>
 
-          <div class="dash-stats" id="dashStats" style="margin: 10px 0 14px; text-align:left;"></div>
+          <div
+            class="dash-stats"
+            id="dashStats"
+            style="margin: 10px 0 14px; text-align: left"
+          ></div>
 
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-            <h2 style="margin:0; color:#333; font-size:1.15rem; text-align:left;">Inbox (received by me)</h2>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <h2
+              style="
+                margin: 0;
+                color: #333;
+                font-size: 1.15rem;
+                text-align: left;
+              "
+            >
+              Inbox (received by me)
+            </h2>
             <button type="button" id="dashRefreshBtn">Refresh</button>
           </div>
 
-          <div class="panel-toolbar" style="margin: 10px 0 12px;">
-            <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:end;">
-              <div class="form-group" style="margin:0; min-width:220px; flex:1;">
+          <div class="panel-toolbar" style="margin: 10px 0 12px">
+            <div
+              style="
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                align-items: end;
+              "
+            >
+              <div
+                class="form-group"
+                style="margin: 0; min-width: 220px; flex: 1"
+              >
                 <label for="dashSearch">Search (File ID / Document)</label>
-                <input type="text" id="dashSearch" placeholder="Type to filter..." />
+                <input
+                  type="text"
+                  id="dashSearch"
+                  placeholder="Type to filter..."
+                />
               </div>
 
-              <div class="form-group" style="margin:0; min-width:180px;">
+              <div class="form-group" style="margin: 0; min-width: 180px">
                 <label for="dashStatus">Status</label>
                 <select id="dashStatus">
                   <option value="">All</option>
@@ -303,9 +500,16 @@
                 </select>
               </div>
 
-              <div class="form-group" style="margin:0; min-width:180px;">
+              <div class="form-group" style="margin: 0; min-width: 180px">
                 <label>&nbsp;</label>
-                <label style="display:flex; gap:8px; align-items:center; font-weight:600;">
+                <label
+                  style="
+                    display: flex;
+                    gap: 8px;
+                    align-items: center;
+                    font-weight: 600;
+                  "
+                >
                   <input type="checkbox" id="dashAutoRefresh" />
                   Auto-refresh (15s)
                 </label>
@@ -313,7 +517,7 @@
             </div>
           </div>
 
-          <div class="table-wrap" style="margin-top:10px;">
+          <div class="table-wrap" style="margin-top: 10px">
             <table class="data-table">
               <thead>
                 <tr>
@@ -327,12 +531,23 @@
                 </tr>
               </thead>
               <tbody id="dashInboxTbody">
-                <tr><td colspan="7">No data yet.</td></tr>
+                <tr>
+                  <td colspan="7">No data yet.</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
-          <h2 style="margin: 18px 0 10px; color:#333; font-size:1.15rem; text-align:left;">Outbox (sent by me)</h2>
+          <h2
+            style="
+              margin: 18px 0 10px;
+              color: #333;
+              font-size: 1.15rem;
+              text-align: left;
+            "
+          >
+            Outbox (sent by me)
+          </h2>
           <div class="table-wrap">
             <table class="data-table">
               <thead>
@@ -347,16 +562,36 @@
                 </tr>
               </thead>
               <tbody id="dashOutboxTbody">
-                <tr><td colspan="7">No data yet.</td></tr>
+                <tr>
+                  <td colspan="7">No data yet.</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
-          <h2 style="margin: 10px 0; color:#333; font-size:1.15rem; text-align:left;">Recent Activity</h2>
-          <div style="display:flex; gap:8px; justify-content:flex-end; margin-bottom:10px;">
-            <button type="button" id="activityRefreshBtn">Refresh Activity</button>
+          <h2
+            style="
+              margin: 10px 0;
+              color: #333;
+              font-size: 1.15rem;
+              text-align: left;
+            "
+          >
+            Recent Activity
+          </h2>
+          <div
+            style="
+              display: flex;
+              gap: 8px;
+              justify-content: flex-end;
+              margin-bottom: 10px;
+            "
+          >
+            <button type="button" id="activityRefreshBtn">
+              Refresh Activity
+            </button>
           </div>
-          <div class="table-wrap" style="margin-top:10px;">
+          <div class="table-wrap" style="margin-top: 10px">
             <table class="data-table">
               <thead>
                 <tr>
@@ -368,7 +603,9 @@
                 </tr>
               </thead>
               <tbody id="activityTbody">
-                <tr><td colspan="5">No activity yet.</td></tr>
+                <tr>
+                  <td colspan="5">No activity yet.</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -380,7 +617,10 @@
         <h1>About the Developer</h1>
         <img src="dom.png" id="domImage" alt="Developer Photo" />
         <h1>Full-Stack Developer</h1>
-        <p>Developed by Larence Dominic T. Sto. Tomas, in compliance to Elective 1.</p>
+        <p>
+          Developed by Larence Dominic T. Sto. Tomas, in compliance to Elective
+          1.
+        </p>
       </section>
 
       <!-- ADMIN -->
@@ -388,50 +628,104 @@
         <div class="portal-section-content">
           <h1 class="portal-section-title">Admin</h1>
 
-          <h2 style="margin: 12px 0; color:#333; font-size:1.2rem; text-align:left;">Create Office Account</h2>
+          <h2
+            style="
+              margin: 12px 0;
+              color: #333;
+              font-size: 1.2rem;
+              text-align: left;
+            "
+          >
+            Create Office Account
+          </h2>
           <form id="portalForm-admin-create">
             <div class="form-group">
               <label for="adminNewUsername">New Username</label>
-              <input type="text" id="adminNewUsername" name="username" required />
+              <input
+                type="text"
+                id="adminNewUsername"
+                name="username"
+                required
+              />
             </div>
 
             <div class="form-group">
               <label for="adminNewPassword">New Password</label>
-              <input type="password" id="adminNewPassword" name="password" required />
+              <input
+                type="password"
+                id="adminNewPassword"
+                name="password"
+                required
+              />
             </div>
 
             <div class="form-group">
-              <label style="display:flex; gap:.5rem; align-items:center; font-weight:600;">
+              <label
+                style="
+                  display: flex;
+                  gap: 0.5rem;
+                  align-items: center;
+                  font-weight: 600;
+                "
+              >
                 <input type="checkbox" name="isAdmin" value="1" />
                 Make this account an admin
               </label>
             </div>
 
-            <div class="form-actions" style="display:flex; gap:8px; align-items:center; justify-content:center;">
+            <div
+              class="form-actions"
+              style="
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                justify-content: center;
+              "
+            >
               <button type="submit" class="btn-primary">Create Account</button>
             </div>
           </form>
 
-          <hr style="margin: 18px 0; border:0; border-top:1px solid #eee;" />
+          <hr style="margin: 18px 0; border: 0; border-top: 1px solid #eee" />
 
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-            <h2 style="margin: 0; color:#333; font-size:1.2rem; text-align:left;">All Documents</h2>
-            <div style="display:flex; gap:8px; align-items:center;">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <h2
+              style="
+                margin: 0;
+                color: #333;
+                font-size: 1.2rem;
+                text-align: left;
+              "
+            >
+              All Documents
+            </h2>
+            <div style="display: flex; gap: 8px; align-items: center">
               <button type="button" id="adminDocsExportBtn">Export CSV</button>
               <button type="button" id="adminDocsRefreshBtn">Refresh</button>
             </div>
           </div>
 
-          <div class="form-group-row" style="margin-top:10px;">
-            <div class="form-group" style="min-width:160px;">
+          <div class="form-group-row" style="margin-top: 10px">
+            <div class="form-group" style="min-width: 160px">
               <label for="adminDocsQ">Search File ID</label>
               <input type="text" id="adminDocsQ" placeholder="BULSU-..." />
             </div>
-            <div class="form-group" style="min-width:160px;">
+            <div class="form-group" style="min-width: 160px">
               <label for="adminDocsUser">Office Username</label>
-              <input type="text" id="adminDocsUser" placeholder="source or receiver" />
+              <input
+                type="text"
+                id="adminDocsUser"
+                placeholder="source or receiver"
+              />
             </div>
-            <div class="form-group" style="min-width:160px;">
+            <div class="form-group" style="min-width: 160px">
               <label for="adminDocsStatus">Status</label>
               <select id="adminDocsStatus">
                 <option value="">All</option>
@@ -443,18 +737,18 @@
               </select>
             </div>
 
-            <div class="form-group" style="min-width:160px;">
+            <div class="form-group" style="min-width: 160px">
               <label for="adminDocsFrom">From (Created)</label>
               <input type="date" id="adminDocsFrom" />
             </div>
 
-            <div class="form-group" style="min-width:160px;">
+            <div class="form-group" style="min-width: 160px">
               <label for="adminDocsTo">To (Created)</label>
               <input type="date" id="adminDocsTo" />
             </div>
           </div>
 
-          <div class="table-wrap" style="margin-top:10px;">
+          <div class="table-wrap" style="margin-top: 10px">
             <table class="data-table">
               <thead>
                 <tr>
@@ -469,23 +763,45 @@
                 </tr>
               </thead>
               <tbody id="adminDocsTbody">
-                <tr><td colspan="8">Click Refresh to load.</td></tr>
+                <tr>
+                  <td colspan="8">Click Refresh to load.</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
           <!-- NEW: Per-Office Counts -->
-          <hr style="margin: 18px 0; border:0; border-top:1px solid #eee;" />
+          <hr style="margin: 18px 0; border: 0; border-top: 1px solid #eee" />
 
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-            <h2 style="margin: 0; color:#333; font-size:1.2rem; text-align:left;">Per-Office Document Counts</h2>
-            <div style="display:flex; gap:8px; align-items:center;">
-              <button type="button" id="adminOfficeStatsExportBtn">Export CSV</button>
-              <button type="button" id="adminOfficeStatsRefreshBtn">Refresh</button>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <h2
+              style="
+                margin: 0;
+                color: #333;
+                font-size: 1.2rem;
+                text-align: left;
+              "
+            >
+              Per-Office Document Counts
+            </h2>
+            <div style="display: flex; gap: 8px; align-items: center">
+              <button type="button" id="adminOfficeStatsExportBtn">
+                Export CSV
+              </button>
+              <button type="button" id="adminOfficeStatsRefreshBtn">
+                Refresh
+              </button>
             </div>
           </div>
 
-          <div class="table-wrap" style="margin-top:10px;">
+          <div class="table-wrap" style="margin-top: 10px">
             <table class="data-table">
               <thead>
                 <tr>
@@ -499,34 +815,79 @@
                 </tr>
               </thead>
               <tbody id="adminOfficeStatsTbody">
-                <tr><td colspan="7">Click Refresh to load.</td></tr>
+                <tr>
+                  <td colspan="7">Click Refresh to load.</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
-          <h2 style="margin: 18px 0 10px; color:#333; font-size:1.2rem; text-align:left;">Reset Password</h2>
+          <h2
+            style="
+              margin: 18px 0 10px;
+              color: #333;
+              font-size: 1.2rem;
+              text-align: left;
+            "
+          >
+            Reset Password
+          </h2>
           <form id="portalForm-admin-reset">
             <div class="form-group">
               <label for="adminResetUsername">Username</label>
-              <input type="text" id="adminResetUsername" name="username" required />
+              <input
+                type="text"
+                id="adminResetUsername"
+                name="username"
+                required
+              />
             </div>
             <div class="form-group">
               <label for="adminResetPassword">New Password</label>
-              <input type="password" id="adminResetPassword" name="newPassword" required />
+              <input
+                type="password"
+                id="adminResetPassword"
+                name="newPassword"
+                required
+              />
             </div>
-            <div class="form-actions" style="display:flex; gap:8px; align-items:center; justify-content:center;">
+            <div
+              class="form-actions"
+              style="
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                justify-content: center;
+              "
+            >
               <button type="submit" class="btn-primary">Update Password</button>
             </div>
           </form>
 
-          <hr style="margin: 18px 0; border:0; border-top:1px solid #eee;" />
+          <hr style="margin: 18px 0; border: 0; border-top: 1px solid #eee" />
 
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-            <h2 style="margin: 0; color:#333; font-size:1.2rem; text-align:left;">Office Accounts</h2>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <h2
+              style="
+                margin: 0;
+                color: #333;
+                font-size: 1.2rem;
+                text-align: left;
+              "
+            >
+              Office Accounts
+            </h2>
             <button type="button" id="adminRefreshBtn">Refresh</button>
           </div>
 
-          <div class="table-wrap" style="margin-top:10px;">
+          <div class="table-wrap" style="margin-top: 10px">
             <table class="data-table">
               <thead>
                 <tr>
@@ -537,19 +898,37 @@
                 </tr>
               </thead>
               <tbody id="adminOfficesTbody">
-                <tr><td colspan="4">Click Refresh to load.</td></tr>
+                <tr>
+                  <td colspan="4">Click Refresh to load.</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
-          <hr style="margin: 18px 0; border:0; border-top:1px solid #eee;" />
+          <hr style="margin: 18px 0; border: 0; border-top: 1px solid #eee" />
 
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-            <h2 style="margin: 0; color:#333; font-size:1.2rem; text-align:left;">System Activity</h2>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <h2
+              style="
+                margin: 0;
+                color: #333;
+                font-size: 1.2rem;
+                text-align: left;
+              "
+            >
+              System Activity
+            </h2>
             <button type="button" id="adminActivityRefreshBtn">Refresh</button>
           </div>
 
-          <div class="table-wrap" style="margin-top:10px;">
+          <div class="table-wrap" style="margin-top: 10px">
             <table class="data-table">
               <thead>
                 <tr>
@@ -563,7 +942,9 @@
                 </tr>
               </thead>
               <tbody id="adminActivityTbody">
-                <tr><td colspan="7">Click Refresh to load.</td></tr>
+                <tr>
+                  <td colspan="7">Click Refresh to load.</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -571,15 +952,48 @@
       </section>
     </main>
 
-    <div id="popup" style="display:none; position:fixed; top:20px; left:50%; transform:translateX(-50%);
-      background:#333; color:#fff; padding:16px 24px; border-radius:5px; z-index:1000; font-weight:bold;
-      box-shadow:0 0 10px rgba(0,0,0,0.5);"></div>
+    <div
+      id="popup"
+      style="
+        display: none;
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: #fff;
+        padding: 16px 24px;
+        border-radius: 5px;
+        z-index: 1000;
+        font-weight: bold;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      "
+    ></div>
 
-    <div id="statusModal" class="modal" style="display:none;" aria-hidden="true">
-      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="statusModalTitle">
+    <div
+      id="statusModal"
+      class="modal"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="statusModalTitle"
+      >
         <div class="modal-header">
-          <h3 id="statusModalTitle" style="margin:0;">Update Document Status</h3>
-          <button type="button" id="statusModalCloseBtn" class="btn-icon" aria-label="Close">×</button>
+          <h3 id="statusModalTitle" style="margin: 0">
+            Update Document Status
+          </h3>
+          <button
+            type="button"
+            id="statusModalCloseBtn"
+            class="btn-icon"
+            aria-label="Close"
+          >
+            ×
+          </button>
         </div>
 
         <form id="statusModalForm">
@@ -602,12 +1016,22 @@
 
           <div class="form-group">
             <label for="statusModalNote">Note (optional)</label>
-            <input type="text" id="statusModalNote" maxlength="255" placeholder="Reason / remarks..." />
+            <input
+              type="text"
+              id="statusModalNote"
+              maxlength="255"
+              placeholder="Reason / remarks..."
+            />
           </div>
 
-          <div class="form-actions" style="display:flex; gap:8px; justify-content:flex-end;">
+          <div
+            class="form-actions"
+            style="display: flex; gap: 8px; justify-content: flex-end"
+          >
             <button type="button" id="statusModalCancelBtn">Cancel</button>
-            <button type="submit" class="btn-primary" id="statusModalSaveBtn">Save</button>
+            <button type="submit" class="btn-primary" id="statusModalSaveBtn">
+              Save
+            </button>
           </div>
         </form>
       </div>
